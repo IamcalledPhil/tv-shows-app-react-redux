@@ -12,7 +12,9 @@ const initialState = {
       return Object.assign({}, state, {
         title: action.payload.name,
         description: action.payload.summary,
-        coverImage: action.payload.image,
+        coverImage: action.payload.image ? 
+          action.payload.image.original :
+          null,
         id: action.payload.id
       });
     }

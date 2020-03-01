@@ -13,7 +13,9 @@ const initialState = {
         title: action.payload.name,
         summary: action.payload.summary,
         season: action.payload.season,
-        coverImage: action.payload.image
+        coverImage: action.payload.image ? 
+          action.payload.image.original :
+          null
       });
     }
     return state;
