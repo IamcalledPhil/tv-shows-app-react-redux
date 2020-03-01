@@ -2,30 +2,37 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getEpisodeList } from "../actions/tvmazeAPI";
 import { displayEpisode } from "../actions/uiActions";
-
+import "../styles/Show.scss";
 export class EpisodeList extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.showEpisode = this.showEpisode.bind(this);
     }
 
   componentDidMount() {
-    this.props.getEpisodeList(this.props.showID);
+    // only need to fetch episodes if we don't have them already
+    if (this.props.episodeList.length === 0){
+        this.props.getEpisodeList(this.props.showID);
+    }
   }
 
-  handleClick (event) {
+  showEpisode (event) {
     this.props.displayEpisode(event.target.value);
   }
 
   render() {
     return (
-        <ul className="episode-list-container">
+        <div className="episode-list-container">
+            <h2>Episodes</h2>
+            <ul>
              {this.props.episodeList.map(episode => (
                 <li key={episode.id} 
-                onClick={this.handleClick}
+                onClick={this.showEpisode}
                 value={episode.id}>{episode.name}</li>
-        ))}
-        </ul>
+                ))}
+            </ul>
+        </div>
+       
     );
   }
 }

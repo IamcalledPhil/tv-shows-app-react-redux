@@ -1,21 +1,23 @@
-import { EPISODE_LIST_LOADED, DISPLAY_EPISODE } from "../constants/action-types";
+import { EPISODE_LIST_LOADED } from "../constants/action-types";
 
-const initialState = {
-    episodeList: [],
-    activeDisplayEpisode: null
+  const initialState = {
+    episodeList: []
   };
   
+/**
+ * Sets the state for the list of episodes
+ *
+ * @param {object} state 
+ * @param {object} action
+ * @return {array} Dispatches an action
+ */
   function showEpisodeListReducer(state = initialState, action) {
     if (action.type === EPISODE_LIST_LOADED) {
       return Object.assign({}, state, {
         episodeList: state.episodeList.concat(action.payload)
 
       });
-    } else if (action.type == DISPLAY_EPISODE){
-        return Object.assign({}, state, {
-            activeDisplayEpisode: action.payload
-        });
-    }
+    } 
     return state;
   }
 

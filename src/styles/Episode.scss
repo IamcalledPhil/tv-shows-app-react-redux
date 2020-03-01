@@ -1,0 +1,73 @@
+@import "_mixins";
+@import "_fonts";
+.episode-header {
+    background-color: #f4f5f5;
+    background-position: 100% 50%;
+    padding: 4em 0;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,250,246,1) 17%, rgba(255,244,237,1) 100%);
+
+    h1 {
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+    }
+
+    h2 {
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
+    }
+}
+
+.episode-content-container {
+    justify-content: center;
+    margin: 2vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto, auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    @include breakpoint(supersml) {
+        display: block;
+      }
+
+    .episode-image {
+        width: 90%;
+        height: auto;
+        grid-area: 1 / 1 / 3 / 2;
+        @include breakpoint(supersml) {
+            display: block;
+            margin: 0 auto;
+          }
+    }
+
+    .episode-summary {
+        grid-area: 1 / 2 / 2 / 3;
+        max-height: 18em;
+        p {
+            margin: 2em auto;
+            vertical-align: top;
+        }
+    }
+
+    .back-button {
+        grid-area: 2 / 2 / 3 / 3;
+        max-height: 18em;
+        background: #FFF4ED;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 2px 4px 10px #e9e8e8;
+
+        @include breakpoint(supersml) {
+            display: block;
+            margin: 2em auto;
+          }
+    }
+
+    .back-button:hover {
+        cursor: pointer;
+        background: #FFE5D4;
+    }
+}
+
+

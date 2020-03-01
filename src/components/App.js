@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import Show from "./Show";
 import Episode from "./Episode";
 
+/**
+ * Renders a show or episode page
+ */
 const App = (props) => {
     if (props.episode){
         return (<Episode/>)
@@ -14,7 +17,7 @@ const App = (props) => {
 
 function select(state) {
     return {
-      episode: state.show.episodes.activeDisplayEpisode
+      episode: state.episode.id
     };
   }
   
